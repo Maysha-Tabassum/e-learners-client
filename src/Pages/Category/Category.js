@@ -3,26 +3,23 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 
-const Courses = () => {
+const Category = () => {
     const course = useLoaderData();
     return (
-        <div className='mt-8'>
-           <Container>
+        <div>
+            <Container>
             <Row>
-                <Col className='d-none d-lg-block'>
+                <Col lg="3" className='d-none d-lg-block'>
                     <LeftSideNav></LeftSideNav>
                 </Col>
-                <Col  className='mx-auto'>
-                    <div>
-                        <h2>Total Courses: {course.length}</h2>
-                    </div>
+                <Col>
+                    <h2> This is The Category Section Which has news: {course.length}</h2>
                 </Col>
                 
             </Row>
            </Container>
-           
         </div>
     );
 };
 
-export default Courses;
+export default Category;
