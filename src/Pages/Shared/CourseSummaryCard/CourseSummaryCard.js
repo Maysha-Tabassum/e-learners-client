@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
 const CourseSummaryCard = ({ course }) => {
@@ -19,7 +20,9 @@ const CourseSummaryCard = ({ course }) => {
                                 <Card.Text>
                                     Some quick example text 
                                 </Card.Text>
-                                <Button className="mx-auto" variant="primary">Go somewhere</Button>
+                                <Link to={`/course-details/${_id}`}>
+                                <Button className="btncart" variant="primary">Show Details</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>

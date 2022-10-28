@@ -7,6 +7,7 @@ import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import CourseDetailsCard from "../../Pages/Shared/CourseDetailsCard/CourseDetailsCard";
 
 export const routes = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ export const routes = createBrowserRouter([
                path: '/courses/:id',
                element: <Category></Category>,
                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            },
+            {
+                path: '/course-details/:id',
+                element: <CourseDetailsCard></CourseDetailsCard>,
+                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
             },
             {
                 path: '/faq',
