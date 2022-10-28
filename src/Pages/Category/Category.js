@@ -9,7 +9,7 @@ const Category = () => {
         <div>
             <Container>
             <Row>
-                <Col lg="3" className='d-none d-lg-block'>
+                <Col className='d-none d-lg-block'>
                     <LeftSideNav></LeftSideNav>
                 </Col>
                 <Col>
