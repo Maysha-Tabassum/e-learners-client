@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const CourseSummaryCard = ({ course }) => {
-    const { title, _id, img, } = course;
+    const { title, category_id, img, } = course;
     console.log(course);
     return (
         <div>
@@ -20,7 +20,7 @@ const CourseSummaryCard = ({ course }) => {
                                 <Card.Text>
                                     Some quick example text 
                                 </Card.Text>
-                                <Link to={`/course-details/${_id}`}>
+                                <Link to={`/courses/${category_id}`}>
                                 <Button className="btncart" variant="primary">Show Details</Button>
                                 </Link>
                             </Card.Body>
@@ -33,3 +33,4 @@ const CourseSummaryCard = ({ course }) => {
 };
 
 export default CourseSummaryCard;
+

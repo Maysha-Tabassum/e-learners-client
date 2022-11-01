@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Card} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
-const CourseDetailsCard = ({course}) => {
-    
-    const {title, img, _id,  name, priceAll, courTeacher} = course;
+
+const CheckOutCard = ({course}) => {
+    const {title, img, name, priceAll, courTeacher} = course;
     return (
-       <div className='container'>
+        <div>
+            <div className='container'>
          <div className=' mt-8 text-center text-success'>
             <h2>{name}</h2>
          </div>
@@ -25,15 +25,13 @@ const CourseDetailsCard = ({course}) => {
                             <p>price : {priceAll}</p>
                         </div>
                     </div>
-                    <Link to={`/course-details/${_id}`}>
-                    <Button className="btncart" variant="success">Get Premium Access</Button>
-                    </Link>
+                    
                 </Card.Body>
             </Card>
          </div>
        </div>
-           
+        </div>
     );
 };
 
-export default CourseDetailsCard;
+export default CheckOutCard;

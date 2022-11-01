@@ -1,7 +1,8 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import CourseSummaryCard from '../Shared/CourseSummaryCard/CourseSummaryCard';
+import CourseDetailsCard from '../Shared/CourseDetailsCard/CourseDetailsCard';
+
 import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 
 const Category = () => {
@@ -18,10 +19,10 @@ const Category = () => {
                             <h2 className="text-center text-success my-5"> This is The Category Section Which has news: {categoryCourse.length}</h2>
                             <div className="d-flex justify-content-center">
                                 {
-                                    categoryCourse.map(course => <CourseSummaryCard
+                                    categoryCourse.map(course => <CourseDetailsCard
                                         key={course._id}
                                         course={course}
-                                    ></CourseSummaryCard>)
+                                    ></CourseDetailsCard>)
                                 }
                             </div>
                         </div>

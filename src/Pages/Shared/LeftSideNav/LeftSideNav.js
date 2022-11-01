@@ -14,6 +14,7 @@ const LeftSideNav = () => {
     return (
         
            <div>
+            
              <h2 className="text-center text-success my-5">Course List</h2>
             <div>
                 {
