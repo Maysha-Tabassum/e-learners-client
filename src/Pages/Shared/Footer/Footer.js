@@ -1,10 +1,20 @@
 import React from 'react';
+import './Footer.css'
 
 const Footer = () => {
     return (
-        <div>
-            <h2>This is Footer</h2>
-        </div>
+        <>
+      
+      <footer>
+      <div className='legal'>
+        <p>
+          Copyright ©2022 All rights reserved | This template is made by Maysha Tabassum
+        </p>
+      </div>
+        
+      </footer>
+      
+    </>
     );
 };
 

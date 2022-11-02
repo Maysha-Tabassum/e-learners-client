@@ -7,6 +7,7 @@ import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 
 const Category = () => {
     const categoryCourse = useLoaderData();
+    console.log(categoryCourse);
     return (
         <div>
             <Container>

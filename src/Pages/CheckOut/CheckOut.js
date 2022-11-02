@@ -1,37 +1,43 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
-import CheckOutCard from '../Shared/CheckOutCard/CheckOutCard';
 
-import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 
 const CheckOut = () => {
     const checkoutCourse = useLoaderData();
+    const { title, img, name, priceAll, courTeacher } = checkoutCourse;
     console.log(checkoutCourse);
     return (
-        <div>
-        <Container>
-            <Row>
-                <Col lg="3" className='d-none d-lg-block'>
-                    <LeftSideNav></LeftSideNav>
-                </Col>
-                <Col lg="9">
-                    <div>
-                        <h2 className="text-center text-success my-5"> This is The Category Section Which has news: {checkoutCourse.length}</h2>
-                        <div className="d-flex justify-content-center">
-                            {
-                                checkoutCourse.map(course => <CheckOutCard
-                                    key={course._id}
-                                    course={course}
-                                ></CheckOutCard>)
-                            }
-                        </div>
-                    </div>
-                </Col>
+        <div className="container">
 
-            </Row>
-        </Container>
-    </div>
+            <h2 className="text-center text-success my-5">Congratulatioins You have Successfully Enroled to this Course</h2>
+            <div className="d-flex justify-content-center">
+                <div className='container'>
+                    <div className=' mt-8 text-center text-success'>
+                        <h2>{name}</h2>
+                    </div>
+                    <div className='mt-6 d-flex justify-content-center align-items-center'>
+                        <Card style={{ width: '20rem' }}>
+                            <Card.Img style={{ height: '12rem' }} variant="top" src={img} />
+                            <Card.Body>
+                                <Card.Title>{title}</Card.Title>
+                                <Card.Text>
+                                    Some quick example text
+                                </Card.Text>
+                                <div>
+                                    <div>
+                                        <p>Lecturer : {courTeacher?.lecturer}</p>
+                                        <p> Total Classes : {courTeacher?.totalTime}</p>
+                                        <p>price : {priceAll}</p>
+                                    </div>
+                                </div>
+
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

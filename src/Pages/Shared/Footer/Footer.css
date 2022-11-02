@@ -1,0 +1,16 @@
+
+  .legal {
+    text-align: center;
+    padding: 30px 0;
+    color: grey;
+    background-color: #1eb2a6;
+  }
+  .legal p {
+    font-size: 15px;
+    color: #fff;
+    font-size: 18px;
+    font-weight:400;
+  }
+  .legal i {
+    color: #1eb2a6;
+  }

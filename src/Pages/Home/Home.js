@@ -6,7 +6,7 @@ const Home = () => {
         <div>
             <section className='hero'>
                 <div className='container'>
-                    <div className='title'>
+                    <div className='title row'>
                         <h2> 'WELCOME TO E-LEARNERS Best Online Education Expertise' </h2>
                         <p>Anytime, Anywhere learn on your suitable Schedule. Expore us, and grow your knowledge and skills.</p>
                         <div className='button'>

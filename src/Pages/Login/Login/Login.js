@@ -1,17 +1,21 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
-  
+    
+    const [error, setError] = useState('');
     const {providerLogin, signIn} = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -21,7 +25,10 @@ const Login = () => {
         const user = result.user;
         console.log(user);
        })
-       .catch(error => console.error(error))
+       .catch(error => {
+        console.error(error)
+        setError(error.message);
+       })
     }
 
     const handleSubmit = event => {
@@ -29,12 +36,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
         signIn(email, password)
         .then( result => {
             const user = result.user;
             console.log(user);
             form.reset();
-            navigate('/')
+            setError('');
+            navigate(from, {replace: true});
         })
         .catch(error => console.error(error))
     }
@@ -58,7 +67,7 @@ const Login = () => {
             </Button>
             <br/>
             <Form.Text className="text-danger">
-                We'll never share your email with anyone else.
+                {error}
             </Form.Text>
             <br/>
             <ButtonGroup className="d-flex">
