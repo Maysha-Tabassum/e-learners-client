@@ -5,7 +5,7 @@ const Toggle = ({toggle, handleToggleChange}) => {
     return (
         <div className="toggle-container" onClick={handleToggleChange}>
             <div className={`toggle-btn ${!toggle ? "disable" : ""}`}>
-                {toggle ? "ON" : "OFF"}
+                {toggle ? "Dark" : "Light"}
             </div>
             
         </div>

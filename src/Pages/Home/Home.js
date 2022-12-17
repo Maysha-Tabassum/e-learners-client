@@ -4,7 +4,7 @@ import './Home.css';
 const Home = () => {
     return (
         <div>
-            <section className='hero'>
+            <section className='hero img-fluid'>
                 <div className='container'>
                     <div className='title row'>
                         <h2> 'WELCOME TO E-LEARNERS Best Online Education Expertise' </h2>

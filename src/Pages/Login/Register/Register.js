@@ -63,7 +63,8 @@ const Register = () => {
    }
 
     return (
-        <Form className="container w-50 mx-auto my-6" onSubmit={handleSubmit}>
+        <div>
+        <Form className="container w-60 mx-auto my-6" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Your Name</Form.Label>
                 <Form.Control name="name" type="text" placeholder="Your Name" />
@@ -103,6 +104,8 @@ const Register = () => {
             </ButtonGroup>
             
         </Form>
+        <p className='text-center'>Already have an account? Please  <Link className='font-bold' to="/login">Login</Link></p>
+    </div>
     );
 };
 

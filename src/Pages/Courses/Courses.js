@@ -20,13 +20,13 @@ const Courses = () => {
                         <div>
                             <h2 className="text-center text-success my-5">Total Courses: {allCourse.length}</h2>
                             <div className="d-flex flex-wrap">
-                            {
-                                allCourse.map(course => <CourseSummaryCard
-                                    key={course._id}
-                                    course={course}
+                                {
+                                    allCourse.map(course => <CourseSummaryCard
+                                        key={course._id}
+                                        course={course}
 
-                                ></CourseSummaryCard>)
-                            }
+                                    ></CourseSummaryCard>)
+                                }
                             </div>
                         </div>
 

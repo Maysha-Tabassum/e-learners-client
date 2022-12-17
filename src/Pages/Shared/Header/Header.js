@@ -22,14 +22,14 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {})
-    .catch(error => console.error(error))
+      .then(() => { })
+      .catch(error => console.error(error))
   }
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container className='d-flex justify-between'>
-      <Image style={{ height: '30px' }} roundedCircle
-                  src={img1}></Image>
+        <Image style={{ height: '30px' }} roundedCircle
+          src={img1}></Image>
         <Navbar.Brand className="ms-3" href="#home">E-learners</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
@@ -44,24 +44,29 @@ const Header = () => {
               {
                 user?.uid ?
                   <>
-                    <span>{user?.displayName}</span>
-                    <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                    <Nav className="ms-auto">
+                      <span>{user?.displayName}</span>
+                      <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                      <Nav.Link eventKey={2} href="#memes">
+                        {user?.photoURL ?
+                          <Image
+                            style={{ height: '30px' }} roundedCircle
+                            src={user?.photoURL}></Image>
+                          : <FaUser></FaUser>
+                        }
+                      </Nav.Link>
+                    </Nav>
                   </>
                   :
                   <>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
+                    <Nav className="ms-auto">
+                      <Nav.Link href="/login">Login</Nav.Link>
+                      <Nav.Link href="/register">Register</Nav.Link>
+                    </Nav>
                   </>
               }
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              {user?.photoURL ?
-                <Image
-                  style={{ height: '30px' }} roundedCircle
-                  src={user?.photoURL}></Image>
-                : <FaUser></FaUser>
-              }
-            </Nav.Link>
+
             <Toggle toggle={toggle} handleToggleChange={handleToggleChange}></Toggle>
           </Nav>
           <div className='d-lg-none'>

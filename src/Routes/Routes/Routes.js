@@ -29,17 +29,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://e-learners-server.vercel.app/course')
             },
             {
                path: '/courses/:id',
                element: <Category></Category>,
-               loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+               loader: ({params}) => fetch(`https://e-learners-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/course-details/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({params}) => fetch(`https://e-learners-server.vercel.app/course/${params.id}`)
                 
             },
      

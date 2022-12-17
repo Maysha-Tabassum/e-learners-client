@@ -10,7 +10,7 @@ const CourseDetailsCard = ({course}) => {
          <div className=' mt-8 text-center text-success'>
             <h2>{name}</h2>
          </div>
-         <div className='mt-6 d-flex justify-content-center align-items-center'>
+         <div className='mt-6 pb-6 d-flex justify-content-center align-items-center'>
          <Card style={{ width: '20rem' }}>
                 <Card.Img style={{ height: '12rem' }} variant="top" src={img} />
                 <Card.Body>

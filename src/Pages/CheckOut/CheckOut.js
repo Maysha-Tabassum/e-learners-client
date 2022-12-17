@@ -9,15 +9,17 @@ const CheckOut = () => {
     console.log(checkoutCourse);
     return (
         <div className="container">
-
-            <h2 className="text-center text-success my-5">Congratulatioins You have Successfully Enroled to this Course</h2>
+            
+           <div>
+           
+             <h2 className="text-center text-success my-4">Congratulatioins You have Successfully Enroled to this Course</h2>
             <div className="d-flex justify-content-center">
                 <div className='container'>
                     <div className=' mt-8 text-center text-success'>
                         <h2>{name}</h2>
                     </div>
                     <div className='mt-6 d-flex justify-content-center align-items-center'>
-                        <Card style={{ width: '20rem' }}>
+                        <Card style={{ width: '20rem'}}>
                             <Card.Img style={{ height: '12rem' }} variant="top" src={img} />
                             <Card.Body>
                                 <Card.Title>{title}</Card.Title>
@@ -37,6 +39,7 @@ const CheckOut = () => {
                     </div>
                 </div>
             </div>
+           </div>
         </div>
     );
 };

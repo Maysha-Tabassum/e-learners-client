@@ -7,10 +7,13 @@ import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     
-    const [error, setError] = useState('');
+    const [error, setError] = useState('')
     const {providerLogin, signIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -43,13 +46,29 @@ const Login = () => {
             console.log(user);
             form.reset();
             setError('');
+            toast.success('Successfully Logedin')
             navigate(from, {replace: true});
+            
         })
-        .catch(error => console.error(error))
+        .catch(error => {
+            console.error(error);
+            toast.error('Bad user Credential', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }) ;
+        })
     }
 
+    
+
     return (
-        <Form className="container w-50 mx-auto my-6" onSubmit={handleSubmit}>
+       <div>
+         <Form className="container w-60 mx-auto my-6" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control name="email" type="email" placeholder="Enter email" required/>
@@ -62,7 +81,7 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" >
                 Login
             </Button>
             <br/>
@@ -77,6 +96,10 @@ const Login = () => {
             </ButtonGroup>
             
         </Form>
+        <p className='text-center'>New to E-Learners ? <Link className='font-bold' to="/register">Register</Link></p>
+        <p className='text-danger'>{error}</p>
+        <ToastContainer />
+       </div>
     );
 };
 
